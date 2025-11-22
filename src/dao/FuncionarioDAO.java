@@ -20,7 +20,6 @@ public class FuncionarioDAO {
     public List<Funcionario> pesquisarPorNome(String nome) {
         List<Funcionario> funcionarios = new ArrayList<>();
         
-        // SQL com LIKE e PreparedStatement
         String sql = "SELECT f.cod_func, f.nome_func, f.sal_func, c.ds_cargo " +
                     "FROM tbfuncs f " +
                     "INNER JOIN tbcargos c ON f.cod_cargo = c.cd_cargo " +
@@ -32,7 +31,6 @@ public class FuncionarioDAO {
         try (Connection conn = ConexaoSQLite.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
-            // CORREÇÃO: Usando PreparedStatement com LIKE
             stmt.setString(1, "%" + nome + "%");
             
             ResultSet rs = stmt.executeQuery();

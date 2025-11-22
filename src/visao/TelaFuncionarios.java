@@ -55,7 +55,6 @@ public class TelaFuncionarios extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout(10, 10));
         
-        // Painel superior - Pesquisa
         JPanel panelSuperior = new JPanel(new FlowLayout());
         panelSuperior.add(new JLabel("Nome:"));
         txtPesquisa = new JTextField(15);
@@ -68,7 +67,6 @@ public class TelaFuncionarios extends JFrame {
         
         add(panelSuperior, BorderLayout.NORTH);
         
-        // Painel central - Dados
         JPanel panelCentral = new JPanel(new GridLayout(3, 2, 10, 10));
         panelCentral.add(new JLabel("Nome:"));
         txtNome = new JTextField();
@@ -87,7 +85,6 @@ public class TelaFuncionarios extends JFrame {
         
         add(panelCentral, BorderLayout.CENTER);
         
-        // Painel inferior - Navegação
         JPanel panelInferior = new JPanel(new FlowLayout());
         
         btnAnterior = new JButton("Anterior");
@@ -102,7 +99,6 @@ public class TelaFuncionarios extends JFrame {
         
         add(panelInferior, BorderLayout.SOUTH);
         
-        // Espaçamento
         ((JPanel)getContentPane()).setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     }
     
@@ -116,7 +112,6 @@ public class TelaFuncionarios extends JFrame {
         
         System.out.println("🔍 Executando SELECT com LIKE no banco...");
         
-        // CORREÇÃO: Faz SELECT com LIKE no banco a cada pesquisa
         funcionarios = dao.pesquisarPorNome(nome);
         
         System.out.println("📊 Resultado do SELECT: " + funcionarios.size() + " funcionários");
